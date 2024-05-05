@@ -8,8 +8,7 @@ from typing import \
 
 from fastapi import \
     Depends, APIRouter
-from pydantic import \
-    BaseModel
+from pydantic import BaseModel as PydanticBaseModel
 from sqlalchemy.sql.schema import Table
 
 from . import sqlalchemy_to_pydantic
@@ -27,6 +26,10 @@ from .misc.utils import convert_table_to_model, Base
 CRUDModelType = TypeVar("CRUDModelType", bound=BaseModel)
 CompulsoryQueryModelType = TypeVar("CompulsoryQueryModelType", bound=BaseModel)
 OnConflictModelType = TypeVar("OnConflictModelType", bound=BaseModel)
+
+class BaseModel(PydanticBaseModel):
+    class Config:
+        arbitrary_types_allowed = True
 
 
 def crud_router_builder(
