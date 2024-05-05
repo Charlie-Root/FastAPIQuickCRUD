@@ -26,6 +26,7 @@ from .type import \
     ItemComparisonOperators, PGSQLMatchingPatternInString, SqlType, FOREIGN_PATH_PARAM_KEYWORD
 
 class BaseModel(PydanticBaseModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
     class Config:
         arbitrary_types_allowed = True
 
