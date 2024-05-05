@@ -91,7 +91,7 @@ def _add_orm_model_config_into_pydantic_model(pydantic_model, **kwargs) -> BaseM
 
 def _model_from_dataclass(kls: DataClassT) -> Type[BaseModel]:
     """ Converts a stdlib dataclass to a pydantic BaseModel. """
-
+    return create_model(kls.__name__, __base__=BaseModel, __module__=kls.__module__, **kls.__annotations__)
     return pydantic_dataclass(kls).__pydantic_model__
 
 
