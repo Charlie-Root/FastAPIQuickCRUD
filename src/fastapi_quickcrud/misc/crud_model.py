@@ -3,7 +3,7 @@ from typing import (Optional,
                     List)
 
 from pydantic import BaseModel as PydanticBaseModel
-
+from pydantic import ConfigDict
 from pydantic._internal._model_construction import ModelMetaclass
 
 from .exceptions import (RequestMissing,

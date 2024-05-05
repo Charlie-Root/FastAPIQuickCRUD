@@ -3,6 +3,7 @@ from typing import Type, List, Union, TypeVar, Optional
 
 from pydantic import BaseModel as PydanticBaseModel
 from pydantic import BaseConfig
+from pydantic import ConfigDict
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql.elements import \
