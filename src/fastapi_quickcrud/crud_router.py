@@ -96,7 +96,7 @@ def crud_router_builder(
     """
 
     db_model, NO_PRIMARY_KEY = convert_table_to_model(db_model)
-
+    print(db_model)
     constraints = db_model.__table__.constraints
 
     if db_session is None:
