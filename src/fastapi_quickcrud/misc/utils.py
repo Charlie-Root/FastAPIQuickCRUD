@@ -1,7 +1,8 @@
 from itertools import groupby
 from typing import Type, List, Union, TypeVar, Optional
 
-from pydantic import BaseModel, BaseConfig
+from pydantic import BaseModel as PydanticBaseModel
+from pydantic import BaseConfig
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql.elements import \
@@ -23,6 +24,11 @@ from .type import \
     ExtraFieldTypePrefix, \
     RangeToComparisonOperators, \
     ItemComparisonOperators, PGSQLMatchingPatternInString, SqlType, FOREIGN_PATH_PARAM_KEYWORD
+
+class BaseModel(PydanticBaseModel):
+    class Config:
+        arbitrary_types_allowed = True
+
 
 Base = TypeVar("Base", bound=declarative_base)
 

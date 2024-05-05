@@ -2,12 +2,17 @@ from typing import (Optional,
                     Dict,
                     List)
 
-from pydantic import BaseModel
+from pydantic import BaseModel as PydanticBaseModel
+
 from pydantic._internal._model_construction import ModelMetaclass
 
 from .exceptions import (RequestMissing,
                          InvalidRequestMethod)
 from .type import CrudMethods
+
+class BaseModel(PydanticBaseModel):
+    class Config:
+        arbitrary_types_allowed = True
 
 
 class RequestResponseModel(BaseModel):
