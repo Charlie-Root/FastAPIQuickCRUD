@@ -826,7 +826,7 @@ class ApiParameterSchemaBuilder:
 
         regex_validation = "(?=(" + '|'.join(all_column_) + r")?\s?:?\s*?(?=(" + '|'.join(
             list(map(str, Ordering))) + r"))?)"
-        columns_with_ordering = pydantic.constr(regex=regex_validation)
+        columns_with_ordering = pydantic.constr(pattern=regex_validation)
         for i in [
             ('limit', Optional[int], Query(None)),
             ('offset', Optional[int], Query(None)),
