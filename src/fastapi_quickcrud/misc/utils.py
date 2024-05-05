@@ -28,8 +28,6 @@ from .type import \
 
 class BaseModel(PydanticBaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    class Config:
-        arbitrary_types_allowed = True
 
 
 Base = TypeVar("Base", bound=declarative_base)

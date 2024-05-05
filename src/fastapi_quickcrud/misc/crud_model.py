@@ -12,9 +12,6 @@ from .type import CrudMethods
 
 class BaseModel(PydanticBaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    class Config:
-        arbitrary_types_allowed = True
-
 
 class RequestResponseModel(BaseModel):
     requestUrlParamModel: Optional[ModelMetaclass]

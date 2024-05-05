@@ -26,9 +26,7 @@ from .misc.utils import convert_table_to_model, Base
 
 class BaseModel(PydanticBaseModel):
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    
-    class Config:
-        arbitrary_types_allowed = True
+
 
 CRUDModelType = TypeVar("CRUDModelType", bound=BaseModel)
 CompulsoryQueryModelType = TypeVar("CompulsoryQueryModelType", bound=BaseModel)
